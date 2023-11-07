@@ -1,19 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { StatusBar } from 'react-native';
 
-import { Container, Titulo, Nome, BotaoSujeito, TextoBotao} from './src/styles';
+import { NavigationContainer } from '@react-navigation/native';
 
+import Routes from './src/routes';
 
 export default function App(){
-  return (
-    <Container>
-      <Titulo>Pizzaria TC</Titulo>
-      <Nome>Thiarly Cavalcante</Nome>
-
-      <BotaoSujeito>
-        <TextoBotao onPress={() => alert('Clicou!')}>Entrar</TextoBotao>
-      </BotaoSujeito>
-    </Container>
-  );
+    return(
+        <NavigationContainer>
+            <StatusBar barStyle="dark-content" backgroundColor="#7159c1" />
+            <Routes />
+        </NavigationContainer>
+    );
 }
-
