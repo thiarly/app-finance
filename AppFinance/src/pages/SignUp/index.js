@@ -1,4 +1,4 @@
-import react from 'react';
+import react, {useContext} from 'react';
 
 import { View, Text, StyleSheet } from 'react-native';
 
@@ -11,8 +11,14 @@ import {
     SubmitText 
 } from '../SignIn/styles';
 
+import { AuthContext } from '../../contexts/auth';
+
 export default function SignUp(){
 
+    const [nome, setNome] = react.useState('');
+    const [email, setEmail] = react.useState('');
+    const [senha, setSenha] = react.useState('');
+    
     return(
         <Background>
             <Container
