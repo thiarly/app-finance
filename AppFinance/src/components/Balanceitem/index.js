@@ -7,12 +7,12 @@ export default function Balanceitem({data}) {
         if(data.tag == 'saldo'){
             return{
                 label: 'Saldo Atual',
-                color: '7b81f7'
+                color: '3b3dbf'
             } 
         }else if(data.tag == 'receita'){
             return{
                 label: 'Entrada de hoje',
-                color: '7b81f'
+                color: 'b0d673'
             }
         }else{
             return{
