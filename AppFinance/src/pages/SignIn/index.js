@@ -25,6 +25,11 @@ export default function SignIn(){
     const [password, setPassword] = useState('');
 
     function handleLogin(){
+        if (email === '' || password === '') {
+            alert('Preencha todos os campos!');
+            return;
+        }
+        
         signIn(email, password);
     }
 

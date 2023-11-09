@@ -97,14 +97,18 @@ function AuthProvider({ children }) {
             setLoadingAuth(false);
         }
     }
+    
+    async function signOut() {
+        await AsyncStorage.clear();
+            setUser(null);
+    }
 
     return (
-        <AuthContext.Provider value={{signed: !!user, user, signUp, signIn, loadingAuth, loading }}>
+        <AuthContext.Provider value={{signed: !!user, user, signUp, signIn, signOut, loadingAuth, loading }}>
             {children}
         </AuthContext.Provider>
     );
     
 }
-
 
 export default AuthProvider;
