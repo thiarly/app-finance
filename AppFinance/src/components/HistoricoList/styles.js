@@ -37,6 +37,6 @@ export const IconView = styled.View`
 export const ValorText = styled.Text`
     color: #000;
     font-size: 20px;
-    font-weight: semi-bold;
+    margin-top: 5px;
 `;
 

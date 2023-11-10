@@ -8,12 +8,13 @@ import Header from "../../components/Header";
 import { Background, ListBalance, Area, Title, List } from './styles';
 
 import api from "../../services/api";
-import { format } from "date-fns";
+import { format, setDate } from "date-fns";
 
 import { useIsFocused } from "@react-navigation/native";
 import BalanceItem from "../../components/Balanceitem";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import HistoricoList from "../../components/HistoricoList";
+import { ca } from "date-fns/locale";
 
 
 
@@ -24,6 +25,7 @@ export default function Home() {
   const [listBalance, setListBalance] = useState([]);
   const [movements, setMovements] = useState([]);
 
+  //Listando apenas as movimentações do dia
   const [dateMovements, setDateMovements] = useState(new Date());
 
 useEffect(() => {
@@ -55,7 +57,23 @@ useEffect(() => {
 
   return () => isActive = false;
 
-}, [isFocused]);
+}, [isFocused, dateMovements]);
+
+  async function handleDelete(id){
+    try{
+      await api.delete(`/receives/delete`,{
+        params:{
+          item_id: id
+        }
+      });
+
+      setDateMovements(new Date());
+
+    }catch(error){
+      alert('Erro ao deletar movimentação!');
+    }
+
+  }
 
   return (
     <Background>
@@ -79,7 +97,7 @@ useEffect(() => {
         <List
           data={movements}
           keyExtractor={ item => item.id }
-          renderItem={ ({ item }) => <HistoricoList data={item} /> }
+          renderItem={ ({ item }) => <HistoricoList data={item} deleteItem={handleDelete}/> }
           ShowVerticalScrollIndicator={false}
           contentContainerStyle={{paddingBottom: 20}}
         />
