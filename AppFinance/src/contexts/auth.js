@@ -99,8 +99,10 @@ function AuthProvider({ children }) {
     }
     
     async function signOut() {
-        await AsyncStorage.clear();
+        await AsyncStorage.clear()
+        .then(() => {
             setUser(null);
+        })
     }
 
     return (
