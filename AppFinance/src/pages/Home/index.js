@@ -12,40 +12,50 @@ import { format } from "date-fns";
 
 import { useIsFocused } from "@react-navigation/native";
 import BalanceItem from "../../components/Balanceitem";
-import HistoricoList from "../../components/HistorioList";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import HistoricoList from "../../components/HistoricoList";
+
+
+
 
 
 export default function Home() {
   const isFocused = useIsFocused();
   const [listBalance, setListBalance] = useState([]);
+  const [movements, setMovements] = useState([]);
 
   const [dateMovements, setDateMovements] = useState(new Date());
 
+useEffect(() => {
+  let isActive = true;
 
-  useEffect(() => {
-    let isActive = true;
+  async function getMovements(){
+    let dateFormated = format(dateMovements, 'dd/MM/yyyy');
 
-    async function getMovements() {
-      let dateFormated = format(dateMovements, "dd/MM/yyyy");
-
-      const balance = await api.get('/balance', { 
-        params: { 
-          date: dateFormated 
-        } 
-      })
-      if(isActive){
-        setListBalance(balance.data);
+    const receives = await api.get('/receives',{
+      params:{
+        date: dateFormated
       }
-    }
-    
-    getMovements();
+    })
 
-    return () => {
-      isActive = false;
+    const balance = await api.get('/balance',{
+      params:{
+        date: dateFormated
     }
+  })
 
-  }, [isFocused]);
+    if(isActive){
+      setMovements(receives.data);
+      setListBalance(balance.data);
+      
+  }
+}
+
+  getMovements();
+
+  return () => isActive = false;
+
+}, [isFocused]);
 
   return (
     <Background>
@@ -63,16 +73,15 @@ export default function Home() {
           <TouchableOpacity>
             <Icon name="event" size={30} color="#121212" />
           </TouchableOpacity>
-          <Title>
-            Ultimas movimentações
-          </Title>
+          <Title>Ultimas movimentações</Title>
         </Area>
 
         <List
-          data={[]}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <HistoricoList/>}
+          data={movements}
+          keyExtractor={ item => item.id }
+          renderItem={ ({ item }) => <HistoricoList data={item} /> }
           ShowVerticalScrollIndicator={false}
+          contentContainerStyle={{paddingBottom: 20}}
         />
 
 

@@ -15,9 +15,10 @@ export const ListBalance = styled.FlatList`
 
 export const Area = styled.View`
   background-color: #FFF;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  margin-top: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-top: 14px;
+  padding-top: 10px;
   flex-direction: row;
   padding-left: 14px;
   padding-right: 14px;
@@ -33,7 +34,7 @@ export const Title = styled.Text`
   font-size: 18px;
 `;
 
-export const List = styled.Text`
+export const List = styled.FlatList`
   flex: 1;
   background-color: #FFF;
 `;
