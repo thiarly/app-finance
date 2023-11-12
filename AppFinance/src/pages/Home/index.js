@@ -73,6 +73,10 @@ useEffect(() => {
 
   }
 
+  function filterDateMovements(dateSelected){
+    setDateMovements(dateSelected);
+  }
+
   return (
     <Background>
         <Header title="Minhas movimentações"/>
@@ -103,6 +107,7 @@ useEffect(() => {
         <Modal visible={modalVisible} animationType="fade" transparent={true}>
           <CalenderModal
             setVisible = { () => setModalVisible(false) }
+            handleFilter={filterDateMovements}
           />
         </Modal>
         
