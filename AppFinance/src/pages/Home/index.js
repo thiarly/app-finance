@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import {TouchableOpacity } from "react-native";
+import {TouchableOpacity, Modal } from "react-native";
 
 import { AuthContext } from "../../contexts/auth";
 
@@ -14,16 +14,14 @@ import { useIsFocused } from "@react-navigation/native";
 import BalanceItem from "../../components/Balanceitem";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import HistoricoList from "../../components/HistoricoList";
-import { ca } from "date-fns/locale";
-
-
-
+import CalenderModal from "../../components/CalenderModal";
 
 
 export default function Home() {
   const isFocused = useIsFocused();
   const [listBalance, setListBalance] = useState([]);
   const [movements, setMovements] = useState([]);
+  const [modalVisible, setModalVisible] = useState(false);
 
   //Listando apenas as movimentações do dia
   const [dateMovements, setDateMovements] = useState(new Date());
@@ -88,7 +86,7 @@ useEffect(() => {
         />
 
         <Area>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => setModalVisible(true)}>
             <Icon name="event" size={30} color="#121212" />
           </TouchableOpacity>
           <Title>Ultimas movimentações</Title>
@@ -101,6 +99,13 @@ useEffect(() => {
           ShowVerticalScrollIndicator={false}
           contentContainerStyle={{paddingBottom: 20}}
         />
+
+        <Modal visible={modalVisible} animationType="fade" transparent={true}>
+          <CalenderModal
+            setVisible = { () => setModalVisible(false) }
+          />
+        </Modal>
+        
 
 
     </Background>
