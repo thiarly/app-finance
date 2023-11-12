@@ -30,7 +30,10 @@ useEffect(() => {
   let isActive = true;
 
   async function getMovements(){
-    let dateFormated = format(dateMovements, 'dd/MM/yyyy');
+    //let dateFormated = format(dateMovements, 'dd/MM/yyyy');
+    let date = new Date(dateMovements);
+    let onlyDate = date.valueOf() + date.getTimezoneOffset() * 60 * 1000;
+    let dateFormated = format (onlyDate, 'dd/MM/yyyy');
 
     const receives = await api.get('/receives',{
       params:{
