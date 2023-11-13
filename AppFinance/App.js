@@ -9,7 +9,7 @@ export default function App(){
     return(
         <NavigationContainer>
           <AuthProvider>
-            <StatusBar barStyle="dark-content" backgroundColor="#7159c1" />
+            <StatusBar barStyle="dark-content" backgroundColor="#7159c1" hidden={true} />
             <Routes />
           </AuthProvider>
         </NavigationContainer>

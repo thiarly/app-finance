@@ -87,7 +87,7 @@ useEffect(() => {
         <ListBalance
           data={listBalance}
           horizontal={true}
-          showsHorizontalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false} //
           keyExtractor={(item) => item.tag}
           renderItem={({ item }) => (<BalanceItem data={item} />)}
         />
