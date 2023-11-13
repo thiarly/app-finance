@@ -12,7 +12,6 @@ App-Finance é um aplicativo de gerenciamento financeiro pessoal construído com
 - **Cadastro:** Criação de nova conta de usuário.
   
 ![2-cadastro](https://github.com/thiarly/app-finance/assets/13594903/383ccb88-949a-4092-bab8-a397b27ee158)
-
   
 - **Movimentações e Saldo Atual:** Visão geral do saldo atual e últimas movimentações.
   
@@ -47,6 +46,7 @@ App-Finance é um aplicativo de gerenciamento financeiro pessoal construído com
 - **Menu Lateral (Drawer):** Navegação e acesso às funcionalidades do app.
 
 ![10-drawer](https://github.com/thiarly/app-finance/assets/13594903/f2ac816b-9e27-4f1a-ae5e-44ac307239c1)
+
 
 ## Tecnologias Utilizadas
 
