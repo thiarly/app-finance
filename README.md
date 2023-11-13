@@ -37,13 +37,16 @@ App-Finance é um aplicativo de gerenciamento financeiro pessoal construído com
 
 
 - **Registro de Receitas e Despesas:** Cadastro fácil de novas movimentações.
-- ![8-registro-receita-despesa](https://github.com/thiarly/app-finance/assets/13594903/e33026d8-30aa-4a86-abec-e341a699c325)
+
+![8-registro-receita-despesa](https://github.com/thiarly/app-finance/assets/13594903/e33026d8-30aa-4a86-abec-e341a699c325)
 
 - **Perfil do Usuário:** Personalização e configurações da conta.
-- ![9-perfil](https://github.com/thiarly/app-finance/assets/13594903/936e407b-3024-4030-bde6-4493623f73ad)
+
+![9-perfil](https://github.com/thiarly/app-finance/assets/13594903/936e407b-3024-4030-bde6-4493623f73ad)
 
 - **Menu Lateral (Drawer):** Navegação e acesso às funcionalidades do app.
-- ![10-drawer](https://github.com/thiarly/app-finance/assets/13594903/f2ac816b-9e27-4f1a-ae5e-44ac307239c1)
+
+![10-drawer](https://github.com/thiarly/app-finance/assets/13594903/f2ac816b-9e27-4f1a-ae5e-44ac307239c1)
 
 ## Tecnologias Utilizadas
 
